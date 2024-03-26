@@ -44,7 +44,7 @@ function calcDivisor2(num) {
         lst[j + 1] = temp;
       }
     }
-  }
+  }3
   console.log(lst);
 
   return lst.length;
