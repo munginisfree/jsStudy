@@ -4,6 +4,7 @@ function min2(n1, n2){
         min = n2;
     }
     return min;
+    // return n1>n2? n2; n1;
 }
 
 function min3(n1,n2,n3){
@@ -15,14 +16,21 @@ function min3(n1,n2,n3){
         minNum = n3;
     }
     return minNum;
+
+    // if(minNum>n2) minNum = n2;
+    // if(minNum>n3) minNum = n3;
+    // return minNum;
+
 }
 
 function isEven(n){
-    if(n%2 === 0 && n !== 1){
-        return true;
-    }else{
-        return false;
-    }
+    // if(n%2 === 0 && n !== 1){
+    //     return true;
+    // }else{
+    //     return false;
+    // }
+
+    return n%2===0;
 }
 
 //result에는 56이 리턴되어야 함.
