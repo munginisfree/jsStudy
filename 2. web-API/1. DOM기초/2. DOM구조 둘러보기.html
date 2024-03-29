@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="f-item">사과</li>
+        <li class="f-item">바나나</li>
+        <li class="f-item">포도</li>
+        <li class="f-item">복숭아</li>
+    </ul>
+    <script>
+        // console.log(document);
+        // console.log(document.documentElement); //html tag를 지칭
+        const html = document.documentElement;
+        html.classList.add('my-html');
+
+        console.log(html.children[1]);
+        // const body = html.children[1];
+        // 모든 html에 body는 있기 때문에 이렇게 가져와도됨
+        const body = document.body;
+        body.style.background = `gray`;
+
+         
+    </script>
+</body>
+</html>

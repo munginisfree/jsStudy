@@ -198,9 +198,9 @@ const overSeven = traders
     .reduce((result, trs) => {
         const year = trs.year;
         if (year in result) {
-            result[year].push(trs); // 객체의 깊은 복사
+            result[year].push(trs); 
         } else {
-            result[year] = [trs]; // 객체의 깊은 복사
+            result[year] = [trs]; 
         }
         return result;
     }, {});
@@ -242,12 +242,12 @@ const maxTraders = {};
 for (const year in groupedByYear) {
     const transactions = groupedByYear[year];
     let maxCount = 0;
-    let maxTrader = ''; // 여기에 빈 문자열을 할당하도록 수정되었습니다.
+    let maxTrader = ''; 
     const traderCounts = transactions.reduce((counts, trs) => {
         counts[trs.trader.name] = (counts[trs.trader.name] || 0) + 1;
         if (counts[trs.trader.name] > maxCount) {
             maxCount = counts[trs.trader.name];
-            maxTrader = trs.trader.name; // 여기에서 거래자의 이름을 업데이트합니다.
+            maxTrader = trs.trader.name;
         }
         return counts;
     }, {});
@@ -270,8 +270,8 @@ console.log(
 makeLine();
 
 // 9. **각 도시에서 진행된 거래의 수를 계산해주세요. 결과는 `{도시이름: 거래수}` 형태의 객체여야 합니다.**
-const totalTrByCity = traders.reduce((totalByCity, trs) => {
-  const city = trs.trader.city;
+const totalTrByCity = traders.reduce((totalByCity, {trader}) => {
+  const {city} = trader
   totalByCity[city] ? totalByCity[city]++ : (totalByCity[city] = 1);
   return totalByCity;
 }, {});

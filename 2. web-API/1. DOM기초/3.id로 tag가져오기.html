@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="f-item" id="apple">사과</li>
+        <li class="f-item" id="banana">바나나</li>
+        <li class="f-item" id="grape">포도</li>
+        <li class="f-item" id="peach">복숭아</li>
+    </ul>
+    <script>
+
+        const $banana = document.getElementById('banana');
+        console.log($banana.textContent);
+        $banana.textContent = 'bababanaananan';
+        $banana.pet = 'banana monkey';
+
+        const $peach = document.getElementById('peach');
+        $peach.style['font-style'] = 'italic';
+
+        const $grape = document.getElementById('grape');
+        $grape.style.backgroundColor = 'red';
+    </script>
+</body>
+</html>
