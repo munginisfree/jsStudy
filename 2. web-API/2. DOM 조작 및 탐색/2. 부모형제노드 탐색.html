@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul id="fruits">
+            <li class="fr apple">사과</li>
+            <li class="fr banana">바나나</li>
+            <li class="fr grape">포도</li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <section class="contents">
+            <ul class="list">
+                <li class="items"><a href="#" class="link">10</a></li>
+                <li class="items"><a href="#" class="link active">20</a></li>
+                <li class="items"><a href="#" class="link">30</a></li>
+            </ul>
+            <ul class="list">
+                <li class="items"><a href="#" class="link">40</a></li>
+                <li class="items"><a href="#" class="link">50</a></li>
+                <li class="items"><a href="#" class="link">60</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+
+        const $active = document.querySelector('.active');
+        console.log($active //a = 20
+            .parentElement  //li
+            .parentElement  //ul
+            .nextElementSibling //ul2
+            .lastElementChild //li3
+            .firstElementChild //a = 60;
+            );
+
+        // 기준태그로부터 위로 올라가면서 탐색하는 함수
+        // closest('css selector')
+        const $contentSect = $active.closest('section.contents');
+        console.log($contentSect);
+
+        // 아래방향 탐색은? 탐색 범위를 좁힐 수 있음
+        const $found = $contentSect.querySelector('ul.list:nth-child(2)');
+        console.log($found);
+
+
+        const $ul = document.getElementById('fruits');
+
+        // const $wrap = $ul.parentElement;
+        // $wrap.style.background = 'oragne';
+        // $wrap.style.height = '100px';
+        // $wrap.style.padding = '10px';
+
+        const $wrap = $ul.parentElement;
+        $wrap.style.background = 'orange';
+        $wrap.style.height = '100px';
+        $wrap.style.padding = '10px';
+
+        console.log($wrap);
+
+        const [$apple, $banna, $grape] = [...$wrap.firstElementChild.children];
+        // =[...document.qureySelectorAll('fr')]
+        $apple.style.color = 'green';
+
+        console.log($banna.nextElementSibling === $grape);
+        console.log($apple.nextElementSibling.nextElementSibling === $grape);
+
+    </script>
+</body>
+
+</html>

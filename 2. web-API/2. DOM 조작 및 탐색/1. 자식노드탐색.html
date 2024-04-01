@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="fr apple">사과</li>
+        <li class="fr banana">바나나</li>
+        <li class="fr grape">포도</li>
+    </ul>
+    <div class="box">
+    </div>
+
+    <script>
+        const $ul = document.getElementById('fruits');
+
+        const $children = [...$ul.children];
+
+        console.log($children);
+
+        // 첫번째 자식 노드! 공백가져옴
+        const $first = $ul.firstChild;
+        console.log($first);
+
+        // 첫번쨰 자식요소 가져옴 태그를 가진 애들
+        const $realFirst = $ul.firstElementChild;
+        console.log($realFirst);
+
+        $realFirst.style.fontSize = '2em';
+
+        const $last = $ul.lastElementChild;
+        $last.style.fontSize = '2em';
+        $last.style.color = 'violet';
+
+        function hasChildren($tag){
+            // return $tag.children.length > 0;
+            return !!$tag.children.length;
+
+        }
+
+        const $box = document.querySelector('.box');
+        console.log(($box.children));
+        console.log((hasChildren($box)));
+    </script>
+</body>
+</html>

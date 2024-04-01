@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>사과</li>
+        <li>바나나</li>
+        <li>포도</li>
+    </ul>
+
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+        const [$apple, $banana, $grape] = [...$fruits.children];
+
+        // 새노드 생성
+        const $newDiv = document.createElement('div');
+        $newDiv.textContent = 'boxxxx';
+
+        // 노드 교체: replaceChild(new, old);
+        $fruits.replaceChild($newDiv, $banana);
+        
+        // 노드 삭제:
+        $fruits.removeChild($apple);
+
+
+        // 자식노드 전체삭제
+        // $fruits.innerHTML = '';
+        [...$fruits.children].forEach($f => {
+            $fruits.removeChild($f);
+        });
+
+        
+
+
+
+    </script>
+    
+</body>
+</html>

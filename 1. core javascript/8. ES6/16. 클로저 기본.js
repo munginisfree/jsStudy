@@ -27,7 +27,6 @@ function bar(){
     }
     return fas;
 }
-
 const h = bar()();
 console.log(h);
 

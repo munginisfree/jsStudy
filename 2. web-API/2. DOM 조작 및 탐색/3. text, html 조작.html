@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .highlight{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="greet">
+        Hello <span class="highlight">World!</span>
+    </div>
+
+    <ul id="food-list">
+        <li class="food">짜장면</li>
+        <li class="food">파스타</li>
+        <li class="food">볶음밥</li>
+    </ul>
+
+
+    <script>
+        const $greet = document.getElementById('greet');
+        console.log($greet.textContent.trim());
+
+        // 자식태그 안에 있는거 다 날라가니까 조심하시길~
+        // $greet.textContent = '안녕 <span class = "highlight">자바스크립트!</span>';
+        $greet.innerHTML = '안녕 <span class = "highlight">자바스크립트!</span>';
+        $greet.querySelector('.highlight').textContent = 'javascript!';
+
+        const $foodList = document.getElementById('food-list');
+
+        // 기존에 있던 자식들 다 지워지고 div로 바꿈...안에 있는 애들 다 갈아치워버림
+        // $foodList.innerHTML = '<div>메롱</div>';
+
+        // 자식태그 추가
+        $foodList.innerHTML += '<li class="food"> 짬뽕 </li>';
+
+        // 자식태그 전체 삭제
+        $foodList.innerHTML = '';
+
+        const foods = ['연어회', '고등어찜', '오렌지', '딸기'];
+        foods.forEach(f=>{
+            $foodList.innerHTML += `
+            <li class="food">${f}</li>
+            `;
+        });
+
+        
+
+
+    </script>
+</body>
+</html>
