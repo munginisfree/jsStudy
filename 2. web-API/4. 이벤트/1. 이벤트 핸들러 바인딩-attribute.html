@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: orange;
+            margin: 20px;
+        }
+        .green{
+            background: yellowgreen;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .red{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onmouseleave="boxClickHander()"></div>
+    <div class="box green" ondblclick="makeTextHandler()"></div>
+    <div class="box red" onmouseover = "growHandler()" onmouseleave = "shrinkHandler()"></div>
+
+    <script>
+        // event handler:  브라우저에서 일어나는 이벤트에대해 해야할 일 을 함수로 만드는 것
+        function boxClickHander(){
+            alert('오렌지색 박스를 클릭함!');
+        }
+        const growHandler = function(){
+            const $redBox = document.querySelector('.red');
+            $redBox.style.width = '200px';
+        };
+        const shrinkHandler = function(){
+            const $redBox = document.querySelector('.red');
+            $redBox.style.width = '100px';
+        };
+
+        const makeTextHandler = ()=>{
+            const $greenBox = document.querySelector('.green');
+            $greenBox.textContent = '안뇽>?<';
+            $greenBox.textContent.value.style.color = 'white';
+        };
+        
+
+    </script>
+</body>
+</html>

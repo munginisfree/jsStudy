@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">버튼입니다.</button>
+
+    <script>
+        const $btn = document.getElementById('btn');
+
+        // event handler
+        const helloHandler = ()=> alert("hihihihi");
+
+        // $btn.onclick = helloHandler;
+
+        $btn.addEventListener('click', helloHandler);
+
+        // 기존 핸들러를 지우고 싶으면 수동으로 지워야함
+        // 수동으로 지울때는 반드시 핸들러가 기명함수이어야함. 기명함수? 이름이 있는 함수
+        $btn.removeEventListener('click', helloHandler);
+
+
+        // 얘는 못지움 왜냐면 이름이 없자나
+        $btn.addEventListener('click', ()=>{
+            $btn.style.background = 'aqua';
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .wrap {
+            background-color: #fff;
+            height: 100vh;
+        }
+        #alert {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <input id="input" type="text" placeholder="색상이나 hexcode입력하시오">
+        <div id="alert">유효하지않은 색상!!!</div>
+    </div>
+
+    <script>
+        const $alert = document.getElementById('alert');
+        const $input = document.getElementById('input');
+        const $wrap = document.querySelector('.wrap');
+
+        $input.addEventListener('input', () => {
+            const color = $input.value.toLowerCase();
+            if (isValidColor(color)) {
+                $alert.style.display = 'none';
+                $wrap.style.backgroundColor = color;
+            } else {
+                $alert.style.display = 'block';
+                $wrap.style.backgroundColor = '#fff';
+            }
+        });
+
+        function isValidColor(color) {
+            return /^#[0-9A-F]{6}$/i.test(color) || /^(black|aqua|green|yellowgreen|silver|gray|white|maroon|red|purple|fuchsia|green|lime|olive|yellow|navy|blue|teal|aqua)$/i.test(color);
+        }
+    </script>
+</body>
+</html>

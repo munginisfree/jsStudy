@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="users">
+        <li data-user-number = '4321' data-role = "common">뽀로로로</li>
+        <li data-user-number = '0099' data-role = "admin">루피피피ㅣ</li>
+    </ul>
+
+    <script>
+        const[$user1, $user2] = [...document.querySelectorAll('.users li')];
+
+        const pororoNumber = $user1.dataset.userNumber;
+        console.log(pororoNumber);
+        
+        const loopyRole = $user2.dataset.role;
+        console.log(loopyRole);
+
+        // 수정
+        $user2.dataset.role = 'gold';
+        
+        // 추가
+        $user1.dataset.userPhoneNumber = '01022220000';
+
+        // 삭제
+        delete $user1.dataset.userNumber;
+</script>
+</body>
+</html>
