@@ -53,9 +53,6 @@ function handleCorrectAnswer($target){
 
     // 구슬클릭이벤트 해제
     document.getElementById('numbers').removeEventListener('click', iconClickHandler);
-    
-
-
 }   
 
 // 답변 검증 및 처리
