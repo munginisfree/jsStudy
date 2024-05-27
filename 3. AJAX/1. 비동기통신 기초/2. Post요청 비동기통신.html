@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .video{
+            width: 300px;
+        }
+        .video iframe{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="video">
+    <iframe src="https://www.youtube.com/embed/Q3K0TOvTOno?si=NJ6K9wbhC6tL_DnS" title="aespa 에스파 &#39;Supernova&#39; MV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+    <div>
+        글제목: <input type="text" id="title">
+    </div>
+    <div>
+        글내용: <textarea id="content"></textarea>
+    </div>
+    <div>
+        <button id = "add">등록</button>
+    </div>
+
+    <script>
+        document.getElementById('add').addEventListener('click', e=>{
+            const xhr = new XMLHttpRequest();
+            const url = 'https://jsonplaceholder.typicode.com/';
+
+            // 요청 정보 설정
+            xhr.open('POST', `${url}/posts`);
+
+            // 요청 보내기: post요청은 서버에 보낼 데이터(payload)를 추가해야함
+            const payload = {
+                title: document.getElementById('title').value,
+                body: document.getElementById('content').value ,
+                userId: 1
+            };
+
+            // 요청 헤더에 payload의 mine type을 명시해야 함
+            xhr.setRequestHeader('content-type', 'application/json');
+
+            // 읽은 데이터는 순수 자바스크립트이므로 서버에 보낼때는
+            // JSON으로 변환하여 보내야한다.
+            xhr.send(JSON.stringify(payload));
+
+            // 응답 확인
+            xhr.onload = e => {
+                console.log(xhr);
+            };
+
+        });
+    </script>
+</body>
+</html>

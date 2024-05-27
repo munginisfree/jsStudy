@@ -43,8 +43,7 @@ function renderNewTodoElement({ id, text }) {
             </div>
             <div class="remove">
               <span class="lnr lnr-cross-circle"></span>
-            </div>
-  `;
+            </div>`;
 
   // 3. 생성한 태그 ul에 추가하기
   const $todoListUl = document.querySelector('.todo-list');
