@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "show">댓글조회!!</button>
+    <script>
+        function fetchGet(){
+            const result = fetch('http://localhost:8392/api/v1/replies/100');
+            // console.log(result);
+            const json = result.then(res => res.json());
+            // console.log(json);
+            const data = json.then(data => console.log('inner then', data));
+            console.log('outside then',data);
+        }
+
+        //async 함수는 기본적으로 promise를 소비하는 함수
+        async function fetchGet2(){
+            //await: 
+            const result = await fetch('http://localhost:8392/api/v1/replies/100');
+            // console.log(result);
+
+            const json = await result.json();
+            console.log(json);
+
+        }
+
+        document.getElementById('show').onclick = e =>{
+            // fetchGet();
+            fetchGet2();
+        };
+    </script>
+</body>
+</html>
